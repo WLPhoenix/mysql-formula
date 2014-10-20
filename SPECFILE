@@ -21,7 +21,7 @@ components:
 
 pillar_defaults:
   mysql:
-	server:
+    server:
       version: '>=5.5.3'
-	client:
+    client:
       version: '>=5.5.3'
