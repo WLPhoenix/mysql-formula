@@ -5,19 +5,15 @@ components:
   - title: MySQL Client
     description: Client component of MySQL
     sls_path: mysql.client
-
   - title: MySQL Server
     description: Server component of MySQL
     sls_path: mysql.server
-
   - title: MySQL User
     description: User component of MySQL
     sls_path: mysql.user
-
   - title: MySQL Python
     description: Python Binding component of MySQL
     sls_path: mysql.python
-
   - title: Remove MySQL Test DB
     description: Deletes the 'test' DB normally created by MySQL
     sls_path: mysql.remove_test_database
