@@ -14,6 +14,8 @@ mysql_debconf:
         'mysql-server/root_password': {'type': 'password', 'value': '{{ mysql_root_password }}'}
         'mysql-server/root_password_again': {'type': 'password', 'value': '{{ mysql_root_password }}'}
         'mysql-server/start_on_boot': {'type': 'boolean', 'value': 'true'}
+    - require:
+      - pkg: debconf-utils
     - require_in:
       - pkg: mysqld
 {% elif os_family == 'RedHat' %}
