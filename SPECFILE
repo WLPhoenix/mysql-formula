@@ -8,5 +8,4 @@ components:
 
 
 
-pillar_defaults:
-  -
+pillar_defaults: []
