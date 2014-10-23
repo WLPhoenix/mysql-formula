@@ -10,7 +10,7 @@
 
 {% endif %}
 
-thorn_mysql_install:
+mysql_install:
   pkg:
     - installed
     - pkgs:
@@ -22,7 +22,15 @@ thorn_mysql_install:
     - enablerepo: "remi,remi-test"
 {% endif %}
 
-thorn_mysql_reload_modules:
+
+/etc/my.conf:
+  file.append:
+    - name: /etc/my.conf
+    - text:
+	  - "[client]"
+	  - "default-character-set=utf8"
+
+mysql_reload_modules:
   module.run:
     - name: saltutil.refresh_modules
     - order: last
