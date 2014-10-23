@@ -27,8 +27,8 @@ mysql_install:
   file.append:
     - name: /etc/my.conf
     - text:
-	  - "[client]"
-	  - "default-character-set=utf8"
+      - "[client]"
+      - "default-character-set=utf8"
 
 mysql_reload_modules:
   module.run:
