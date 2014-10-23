@@ -1,4 +1,4 @@
-{% if grains['os_family'] == 'RedHat':
+{% if grains['os_family'] == 'RedHat' %}
   {% set mysql_client = 'mysql' %}
   {% set mysql_python = 'MySQL-python' %}
   {% set mysql_java = 'mysql-connector-java' %}
@@ -19,23 +19,10 @@ thorn_mysql_install:
       - {{ mysql_java }}
       - {{ mysql_python }}
 {% if grains['os_family'] == 'RedHat' %}
-    - enablerepo:
-      - remi
-      - remi-test
+    - enablerepo: "remi,remi-test"
 {% endif %}
 
-
-salt-minion:
-  pkg:
-    - installed
-  service:
-    - running
-    - require:
-      - pkg:
-        - salt-minion
-        - {{ mysql_python }}
-  cmd:
-    - wait
-    - name: echo service salt-minion restart | at now + 1 minute
-    - watch:
-      - pkg: salt-minion
+thorn_mysql_reload_modules:
+  module.run:
+    - name: saltutil.refresh_modules
+    - order: last
