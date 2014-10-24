@@ -2,8 +2,11 @@ title: MySQL Salt Formula
 description: Salt formula for installing components of MySQl
 root_path: mysql
 components:
-  - title: MySQL Thorn
-    description: MySQL component for Thorn
-    sls_path: mysql
+    - title: MySQL Server
+    description: MySQL Server component
+    sls_path: mysql.server
+  - title: MySQL Client
+    description: MySQL Client component
+    sls_path: mysql.client
 
 pillar_defaults: {}
