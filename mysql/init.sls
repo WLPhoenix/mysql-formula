@@ -21,11 +21,13 @@ mysql_install:
 {% if grains['os_family'] == 'RedHat' %}
     - enablerepo: "remi,remi-test"
 {% endif %}
+    - requisite_in:
+      - file: /etc/my.cnf
 
 
-/etc/my.conf:
+/etc/my.cnf:
   file.append:
-    - name: /etc/my.conf
+    - name: /etc/my.cnf
     - text:
       - "[client]"
       - "default-character-set=utf8"
